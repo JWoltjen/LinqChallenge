@@ -46,6 +46,11 @@ namespace LinqChallenge
             return sortedChars;
         }
 
+        // Remember IEnumerable is an interface that defines one method, 'GetEnumerator', which returns an IEnumerator. This allows the objects of the implementing class to be iterated over in a foreach loop. When we say IEnumerable<object>, we're saying that we have a collection of objects that can be iterated over. We designate <object> because we're dealing with anonymous types
+
+        // GroupBy(c => c) is a Linq method that groups elements of a collection based on a key. The key is defined by the lambda expression. In this case, 'c => c' means we're grouping by the character itself. So all instances of a particular character in the string will be grouped together. 
+
+        // Select is a method that projects each element of a sequence into a new form. In this case, we're transforming each group 'g' into a new anonymous object with two properties: "Letter" and "Count". Here, g stands for group and it represents each group of characters created by the groupby method. 'g.Key' gives us the character that was used to group the elements, and 'g.Count()' gives us the number of elements in a group.
         static IEnumerable<object> CharIndexer(string words)
         {
             var indexedChars = words
